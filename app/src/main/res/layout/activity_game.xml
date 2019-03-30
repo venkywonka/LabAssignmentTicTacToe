@@ -13,7 +13,7 @@
         android:layout_weight="5"
         android:gravity="center">
         <TextView
-            android:id="@+id/turnTextView"
+            android:id="@+id/messageTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Turn"
@@ -34,17 +34,20 @@
                 android:id="@+id/grid00"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
             <Button
                 android:id="@+id/grid01"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
             <Button
                 android:id="@+id/grid02"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
         </TableRow>
 
         <TableRow
@@ -55,17 +58,20 @@
                 android:id="@+id/grid10"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
             <Button
                 android:id="@+id/grid11"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
             <Button
                 android:id="@+id/grid12"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
         </TableRow>
 
         <TableRow
@@ -76,17 +82,20 @@
                 android:id="@+id/grid20"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
             <Button
                 android:id="@+id/grid21"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
             <Button
                 android:id="@+id/grid22"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_margin="25dp"/>
+                android:layout_margin="25dp"
+                android:onClick="onGridClicked"/>
         </TableRow>
 
     </TableLayout>
