@@ -5,11 +5,18 @@
     <string name="yourTurn">Your Turn</string>
     <string name="opponentTurn">Opponent\'s Turn</string>
 
+    <string name="serverEndpointName">ticTacToeServer</string>
+    <string name="clientEndpointName">ticTacToeClient</string>
+
     <string name="searching">Searching &#8230;</string>
+    <string name="errorDisconnect">Peer Disconnected!</string>
 
     <string name="gameOverHost">Tap To Reset</string>
     <string name="gameOverClient">Game Over</string>
 
     <string name="winBlockMarker">X</string>
+
+    <string name="resetGame">resetGameCommand</string>
+
 
 </resources>
