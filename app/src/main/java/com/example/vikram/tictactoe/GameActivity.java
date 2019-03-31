@@ -1,6 +1,8 @@
 package com.example.vikram.tictactoe;
 
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -63,17 +65,22 @@ public class GameActivity extends AppCompatActivity {
         }
 
         if(isHost){
-            view.setBackgroundColor(getResources().getColor(R.color.hostColor));
+            view.getBackground().setColorFilter(getResources().getColor(R.color.hostColor), PorterDuff.Mode.MULTIPLY);
             view.setTag(R.string.dirtyTag,"host");
         }
         else{
-            view.setBackgroundColor(getResources().getColor(R.color.clientColor));
+            view.getBackground().setColorFilter(getResources().getColor(R.color.clientColor), PorterDuff.Mode.MULTIPLY);
             view.setTag(R.string.dirtyTag,"client");
         }
 
         if(isGameComplete()){
             isPlayable=false;
-            messageTextView.setText("Game Over!");
+            if(isHost){
+                messageTextView.setText(R.string.gameOverHost);
+            }
+            else{
+                messageTextView.setText(R.string.gameOverClient);
+            }
         }
     }
 
@@ -84,18 +91,27 @@ public class GameActivity extends AppCompatActivity {
                     grid02.getTag(R.string.dirtyTag) != null &&
                     grid00.getTag(R.string.dirtyTag).equals(grid01.getTag(R.string.dirtyTag)) &&
                     grid01.getTag(R.string.dirtyTag).equals(grid02.getTag(R.string.dirtyTag))) {
+                grid00.setText(R.string.winBlockMarker);
+                grid01.setText(R.string.winBlockMarker);
+                grid02.setText(R.string.winBlockMarker);
                 return true;
             } else if (grid10.getTag(R.string.dirtyTag) != null &&
                     grid11.getTag(R.string.dirtyTag) != null &&
                     grid12.getTag(R.string.dirtyTag) != null &&
                     grid10.getTag(R.string.dirtyTag).equals(grid11.getTag(R.string.dirtyTag)) &&
                     grid11.getTag(R.string.dirtyTag).equals(grid12.getTag(R.string.dirtyTag))) {
+                grid10.setText(R.string.winBlockMarker);
+                grid11.setText(R.string.winBlockMarker);
+                grid12.setText(R.string.winBlockMarker);
                 return true;
             } else if (grid20.getTag(R.string.dirtyTag) != null &&
                     grid21.getTag(R.string.dirtyTag) != null &&
                     grid22.getTag(R.string.dirtyTag) != null &&
                     grid20.getTag(R.string.dirtyTag).equals(grid21.getTag(R.string.dirtyTag)) &&
                     grid21.getTag(R.string.dirtyTag).equals(grid22.getTag(R.string.dirtyTag))) {
+                grid20.setText(R.string.winBlockMarker);
+                grid21.setText(R.string.winBlockMarker);
+                grid22.setText(R.string.winBlockMarker);
                 return true;
             }
 
@@ -105,18 +121,27 @@ public class GameActivity extends AppCompatActivity {
                     grid20.getTag(R.string.dirtyTag) != null &&
                     grid00.getTag(R.string.dirtyTag).equals(grid10.getTag(R.string.dirtyTag)) &&
                     grid10.getTag(R.string.dirtyTag).equals(grid20.getTag(R.string.dirtyTag))) {
+                grid00.setText(R.string.winBlockMarker);
+                grid10.setText(R.string.winBlockMarker);
+                grid20.setText(R.string.winBlockMarker);
                 return true;
             } else if (grid01.getTag(R.string.dirtyTag) != null &&
                     grid11.getTag(R.string.dirtyTag) != null &&
                     grid21.getTag(R.string.dirtyTag) != null &&
                     grid01.getTag(R.string.dirtyTag).equals(grid11.getTag(R.string.dirtyTag)) &&
                     grid11.getTag(R.string.dirtyTag).equals(grid21.getTag(R.string.dirtyTag))) {
+                grid01.setText(R.string.winBlockMarker);
+                grid11.setText(R.string.winBlockMarker);
+                grid21.setText(R.string.winBlockMarker);
                 return true;
             } else if (grid02.getTag(R.string.dirtyTag) != null &&
                     grid12.getTag(R.string.dirtyTag) != null &&
                     grid22.getTag(R.string.dirtyTag) != null &&
                     grid02.getTag(R.string.dirtyTag).equals(grid12.getTag(R.string.dirtyTag)) &&
                     grid12.getTag(R.string.dirtyTag).equals(grid22.getTag(R.string.dirtyTag))) {
+                grid02.setText(R.string.winBlockMarker);
+                grid12.setText(R.string.winBlockMarker);
+                grid22.setText(R.string.winBlockMarker);
                 return true;
             }
 
@@ -126,16 +151,63 @@ public class GameActivity extends AppCompatActivity {
                     grid22.getTag(R.string.dirtyTag) != null &&
                     grid00.getTag(R.string.dirtyTag).equals(grid11.getTag(R.string.dirtyTag)) &&
                     grid11.getTag(R.string.dirtyTag).equals(grid22.getTag(R.string.dirtyTag))) {
+                grid00.setText(R.string.winBlockMarker);
+                grid11.setText(R.string.winBlockMarker);
+                grid22.setText(R.string.winBlockMarker);
                 return true;
             } else if (grid02.getTag(R.string.dirtyTag) != null &&
                     grid11.getTag(R.string.dirtyTag) != null &&
                     grid20.getTag(R.string.dirtyTag) != null &&
                     grid02.getTag(R.string.dirtyTag).equals(grid11.getTag(R.string.dirtyTag)) &&
                     grid11.getTag(R.string.dirtyTag).equals(grid20.getTag(R.string.dirtyTag))) {
+                grid02.setText(R.string.winBlockMarker);
+                grid11.setText(R.string.winBlockMarker);
+                grid20.setText(R.string.winBlockMarker);
                 return true;
             }
 
         return false;
+    }
+
+    public void resetGame(View view){
+        if(isHost && isGameComplete()){
+            //Reset Tags
+            grid00.setTag(R.string.dirtyTag,null);
+            grid01.setTag(R.string.dirtyTag,null);
+            grid02.setTag(R.string.dirtyTag,null);
+            grid10.setTag(R.string.dirtyTag,null);
+            grid11.setTag(R.string.dirtyTag,null);
+            grid12.setTag(R.string.dirtyTag,null);
+            grid20.setTag(R.string.dirtyTag,null);
+            grid21.setTag(R.string.dirtyTag,null);
+            grid22.setTag(R.string.dirtyTag,null);
+
+            //Clear Colors
+            grid00.getBackground().clearColorFilter();
+            grid01.getBackground().clearColorFilter();
+            grid02.getBackground().clearColorFilter();
+            grid10.getBackground().clearColorFilter();
+            grid11.getBackground().clearColorFilter();
+            grid12.getBackground().clearColorFilter();
+            grid20.getBackground().clearColorFilter();
+            grid21.getBackground().clearColorFilter();
+            grid22.getBackground().clearColorFilter();
+
+            //Clear Markers
+            grid00.setText("");
+            grid01.setText("");
+            grid02.setText("");
+            grid10.setText("");
+            grid11.setText("");
+            grid12.setText("");
+            grid20.setText("");
+            grid21.setText("");
+            grid22.setText("");
+
+            isPlayable=true;
+
+            messageTextView.setText(R.string.yourTurn);
+        }
     }
 
     public void colorBoxInGrid(View view){

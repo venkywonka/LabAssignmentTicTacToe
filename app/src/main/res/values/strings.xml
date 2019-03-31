@@ -6,4 +6,10 @@
     <string name="opponentTurn">Opponent\'s Turn</string>
 
     <string name="searching">Searching &#8230;</string>
+
+    <string name="gameOverHost">Tap To Reset</string>
+    <string name="gameOverClient">Game Over</string>
+
+    <string name="winBlockMarker">X</string>
+
 </resources>
