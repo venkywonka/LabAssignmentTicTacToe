@@ -29,13 +29,15 @@ public class GameActivity extends AppCompatActivity {
 
     TextView messageTextView;
 
-    boolean isHost=true; //TODO Remove initialization
+    boolean isHost;
     boolean isPlayable=true; //TODO Remove initialization
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        isHost=getIntent().getBooleanExtra("isHost",false);
 
         grid00 = findViewById(R.id.grid00);
         grid01 = findViewById(R.id.grid01);

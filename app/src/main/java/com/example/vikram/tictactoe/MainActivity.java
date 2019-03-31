@@ -13,8 +13,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goToGameActivity(View view){
+    public void hostGame(View view){
         Intent intent = new Intent(this,GameActivity.class);
+        intent.putExtra("isHost",true);
+        startActivity(intent);
+    }
+
+    public void searchGame(View view){
+        Intent intent = new Intent(this,GameActivity.class);
+        intent.putExtra("isHost",false);
         startActivity(intent);
     }
 }
